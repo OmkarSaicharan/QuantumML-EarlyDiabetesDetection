@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DermaVision Design System - Medical AI Theme */
+
+@layer base {
+  :root {
+    /* Core medical palette - teal/cyan inspired */
+    --background: 200 20% 98%;
+    --foreground: 200 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 50% 10%;
+
+    /* Primary: Medical Teal */
+    --primary: 174 62% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Soft Blue */
+    --secondary: 200 30% 94%;
+    --secondary-foreground: 200 50% 20%;
+
+    /* Muted: Light Gray Blue */
+    --muted: 200 20% 96%;
+    --muted-foreground: 200 15% 45%;
+
+    /* Accent: Coral for CTAs */
+    --accent: 16 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 90%;
+    --input: 200 20% 90%;
+    --ring: 174 62% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(174 62% 35%), hsl(190 60% 40%));
+    --gradient-hero: linear-gradient(180deg, hsl(200 40% 97%) 0%, hsl(200 30% 94%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(200 20% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(16 85% 60%), hsl(25 90% 55%));
+    
+    --shadow-soft: 0 4px 20px -2px hsl(200 20% 50% / 0.1);
+    --shadow-card: 0 8px 32px -4px hsl(200 30% 40% / 0.12);
+    --shadow-elevated: 0 20px 60px -10px hsl(200 40% 30% / 0.2);
+    --shadow-glow: 0 0 40px -10px hsl(174 62% 35% / 0.3);
+
+    /* Medical status colors */
+    --status-healthy: 142 72% 42%;
+    --status-mild: 48 96% 53%;
+    --status-moderate: 25 95% 53%;
+    --status-severe: 0 84% 60%;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 200 50% 20%;
+    --sidebar-primary: 174 62% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 30% 96%;
+    --sidebar-accent-foreground: 200 50% 20%;
+    --sidebar-border: 200 20% 92%;
+    --sidebar-ring: 174 62% 35%;
+  }
+
+  .dark {
+    --background: 200 40% 6%;
+    --foreground: 200 20% 95%;
+
+    --card: 200 35% 10%;
+    --card-foreground: 200 20% 95%;
+
+    --popover: 200 35% 10%;
+    --popover-foreground: 200 20% 95%;
+
+    --primary: 174 55% 45%;
+    --primary-foreground: 200 50% 5%;
+
+    --secondary: 200 30% 15%;
+    --secondary-foreground: 200 20% 90%;
+
+    --muted: 200 25% 15%;
+    --muted-foreground: 200 15% 60%;
+
+    --accent: 16 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 25% 18%;
+    --input: 200 25% 18%;
+    --ring: 174 55% 45%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(174 55% 45%), hsl(190 50% 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(200 40% 6%) 0%, hsl(200 35% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(200 35% 10%) 0%, hsl(200 30% 12%) 100%);
+    
+    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 32px -4px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 20px 60px -10px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px -10px hsl(174 55% 45% / 0.4);
+
+    --sidebar-background: 200 35% 8%;
+    --sidebar-foreground: 200 20% 90%;
+    --sidebar-primary: 174 55% 45%;
+    --sidebar-primary-foreground: 200 50% 5%;
+    --sidebar-accent: 200 25% 15%;
+    --sidebar-accent-foreground: 200 20% 90%;
+    --sidebar-border: 200 25% 18%;
+    --sidebar-ring: 174 55% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Medical status badges */
+  .status-healthy {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+  
+  .status-mild {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+  
+  .status-moderate {
+    @apply bg-orange-100 text-orange-800 border-orange-200;
+  }
+  
+  .status-severe {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+  
+  .animate-pulse-gentle {
+    animation: pulseGentle 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGentle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
